@@ -1,0 +1,53 @@
+{
+  "shopName": "Andrii's Supreme Ukuleles",
+  "categories": [
+    {
+      "categoryName": "Soprano Ukuleles",
+      "items": [
+        {
+          "name": "Soprano Ukulele",
+          "price": 100,
+          "quantityInStock": 24,
+          "color": "Red",
+          "inStock": true
+        }
+      ]
+    },
+    {
+      "categoryName": "Regular Ukuleles",
+      "items": [
+        {
+          "name": "Concert Ukulele",
+          "price": 200,
+          "quantityInStock": 20,
+          "color": "Natural",
+          "inStock": true
+        }
+      ]
+    },
+    {
+      "categoryName": "Banjoleles",
+      "items": [
+        {
+          "name": "Banjolele Deluxe 2000",
+          "price": 300,
+          "quantityInStock": 0,
+          "color": "Brown",
+          "inStock": false
+        }
+      ]
+    },
+    {
+      "categoryName": "Baritone Ukuleles",
+      "items": [
+        {
+          "name": "Baritone Ukulele",
+          "price": 400,
+          "quantityInStock": 15,
+          "color": "Mahogany",
+          "inStock": true
+        }
+      ]
+    }
+  ]
+}
