@@ -1,34 +1,6 @@
-# This is a sample Python script.
-
-# Press ⌃R to execute it or replace it with your code.
-# Press Double ⇧ to search everywhere for classes, files, tool windows, actions, and settings.
-
-
 import json
-from dataclasses import dataclass
+from models import Item, Category, Shop
 
-
-@dataclass
-class Item:
-    name: str
-    price: int
-    quantity_in_stock: int
-    color: str
-    in_stock: bool
-
-
-@dataclass
-class Category:
-    category_name: str
-    items: list
-
-
-@dataclass
-class Shop:
-    shop_name: str
-    categories: list
-
-#Creates a shop object from JSON file
 def create_shop(file_path: str) -> Shop:
     with open(file_path, "r", encoding="utf-8") as f:
         andriis_store = json.load(f)
@@ -58,7 +30,7 @@ def create_shop(file_path: str) -> Shop:
         categories=categories,
     )
 
-# Add a category to the shop
+
 def add_category(shop: Shop, category_name: str):
     new_category = Category(
         category_name=category_name,
@@ -67,7 +39,6 @@ def add_category(shop: Shop, category_name: str):
     shop.categories.append(new_category)
 
 
-#Adds a new item to a shop category
 def add_item(shop: Shop, category_name: str, name: str, price: int, quantity_in_stock: int, color: str,
              in_stock: bool):
     for category in shop.categories:
@@ -85,7 +56,7 @@ def add_item(shop: Shop, category_name: str, name: str, price: int, quantity_in_
 
 
     print(f"Category '{category_name}' not found in Andrii's shop")
-#DTO -> JSON
+
 def save_shop(shop: Shop, file_path: str):
     categories = []
     for category in shop.categories:
@@ -112,25 +83,36 @@ def save_shop(shop: Shop, file_path: str):
     with open(file_path, "w", encoding="utf-8") as f:
         json.dump(data, f, indent=2)
 
+# shop = create_shop("data/ukuleles.json")
+# add_category(shop, "Baritone Ukuleles")
+# add_item(
+#         shop,
+#         "Baritone Ukuleles",
+#         name="Baritone Ukulele",
+#         price=400,
+#         quantity_in_stock=15,
+#         color="Mahogany",
+#         in_stock=True,
+# )
+#
+# save_shop(shop, "data/ukuleles_updated.json")
 
-shop = create_shop("data/ukuleles.json")
-add_category(shop, "Baritone Ukuleles")
-add_item(
+
+def main():
+    shop = create_shop("data/ukuleles.json")
+
+    add_category(shop, "Baritone Ukuleles")
+    add_item(
         shop,
         "Baritone Ukuleles",
         name="Baritone Ukulele",
-        price=400,
+        price=250,
         quantity_in_stock=15,
         color="Mahogany",
         in_stock=True,
-)
-print(shop)
-save_shop(shop, "data/ukuleles_updated.json")
+    )
+    save_shop(shop, "data/ukuleles_updated.json")
 
 
-
-# # Press the green button in the gutter to run the script.
-# if __name__ == '__main__':
-#     print("hi")
-
-
+if __name__ == "__main__":
+    main()
