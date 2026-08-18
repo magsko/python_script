@@ -24,7 +24,6 @@ def create_shop(file_path: str) -> Shop:
         )
         categories.append(category)
 
-
     return Shop(
         shop_name=andriis_store["shopName"],
         categories=categories,
@@ -83,21 +82,6 @@ def save_shop(shop: Shop, file_path: str):
     with open(file_path, "w", encoding="utf-8") as f:
         json.dump(data, f, indent=2)
 
-# shop = create_shop("data/ukuleles.json")
-# add_category(shop, "Baritone Ukuleles")
-# add_item(
-#         shop,
-#         "Baritone Ukuleles",
-#         name="Baritone Ukulele",
-#         price=400,
-#         quantity_in_stock=15,
-#         color="Mahogany",
-#         in_stock=True,
-# )
-#
-# save_shop(shop, "data/ukuleles_updated.json")
-
-
 def main():
     shop = create_shop("data/ukuleles.json")
 
@@ -112,7 +96,6 @@ def main():
         in_stock=True,
     )
     save_shop(shop, "data/ukuleles_updated.json")
-
 
 if __name__ == "__main__":
     main()
